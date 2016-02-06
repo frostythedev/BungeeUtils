@@ -1,0 +1,4 @@
+hub-server: 'lobby'
+list-command:
+    - 'Owner:&4'
+    - 'Admin:&c'

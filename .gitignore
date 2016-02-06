@@ -1,0 +1,17 @@
+target/classes/config.yml
+target/classes/me/frostythedev/bungeeutils/BungeeUtils.class
+target/classes/me/frostythedev/bungeeutils/commands/BungeeCommands.class
+target/classes/me/frostythedev/bungeeutils/config/Configs.class
+target/classes/me/frostythedev/bungeeutils/config/FlatFile.class
+target/classes/me/frostythedev/bungeeutils/listeners/GeneralListeners.class
+target/classes/me/frostythedev/bungeeutils/managers/PermManager.class
+target/classes/me/frostythedev/bungeeutils/managers/PlayerManager.class
+target/classes/me/frostythedev/bungeeutils/perms/PermGroup.class
+target/classes/me/frostythedev/bungeeutils/perms/PermUser.class
+target/classes/me/frostythedev/bungeeutils/ui/SendConsole.class
+target/classes/me/frostythedev/bungeeutils/utils/ColorUtils.class
+target/classes/me/frostythedev/bungeeutils/utils/MessageUtils.class
+target/classes/me/frostythedev/bungeeutils/ux/Lang.class
+target/classes/perms.yml
+target/classes/plugin.yml
+BungeeUtils.iml
