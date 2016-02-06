@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 target/classes/config.yml
 target/classes/me/frostythedev/bungeeutils/BungeeUtils.class
 target/classes/me/frostythedev/bungeeutils/commands/BungeeCommands.class
@@ -15,3 +16,17 @@ target/classes/me/frostythedev/bungeeutils/ux/Lang.class
 target/classes/perms.yml
 target/classes/plugin.yml
 BungeeUtils.iml
+=======
+*.class
+
+# Mobile Tools for Java (J2ME)
+.mtj.tmp/
+
+# Package Files #
+*.jar
+*.war
+*.ear
+
+# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
+hs_err_pid*
+>>>>>>> 7016d4e05c4056c8af8f367f584a8bbae475a7c3
