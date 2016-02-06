@@ -112,7 +112,7 @@ public class BungeeUtils extends Plugin implements Listener, CommandExecutor<Com
             sender.sendMessage(new TextComponent(ChatColor.RED + e.getUsage()));
         } catch (WrappedCommandException e) {
             if (e.getCause() instanceof NumberFormatException) {
-                sender.sendMessage(new TextComponent(ChatColor.RED + "Number expected, string recieved instead."));
+                sender.sendMessage(new TextComponent(ChatColor.RED + "Number expected, string received instead."));
             } else {
                 sender.sendMessage(new TextComponent(ChatColor.RED + "An error has occurred, check Console for more information."));
                 e.printStackTrace();
