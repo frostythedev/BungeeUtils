@@ -4,6 +4,7 @@ import com.sk89q.minecraft.util.commands.Command;
 import com.sk89q.minecraft.util.commands.CommandContext;
 import com.sk89q.minecraft.util.commands.CommandException;
 import com.sk89q.minecraft.util.commands.CommandPermissions;
+import me.frostythedev.bungeeutils.BungeeUtils;
 import me.frostythedev.bungeeutils.config.FlatFile;
 import me.frostythedev.bungeeutils.managers.PermManager;
 import me.frostythedev.bungeeutils.managers.PlayerManager;
@@ -27,6 +28,8 @@ import java.util.List;
  */
 public class BungeeCommands {
 
+    private static FlatFile config = BungeeUtils.getInstance().getPerms();
+
     @Command(
             aliases = {"hub", "lobby"},
             desc = "Teleport to the lobby"
@@ -34,7 +37,8 @@ public class BungeeCommands {
     public static void hub(CommandSender sender) throws CommandException {
         if (sender instanceof ProxiedPlayer) {
 
-            ServerInfo info = ProxyServer.getInstance().getServerInfo("lobby");
+            ServerInfo info = ProxyServer.getInstance().getServerInfo(config.getString("hub-server"));
+
             if (info != null) {
                 ((ProxiedPlayer) sender).connect(info);
                 Lang.message(sender, Lang.HUB_MESSAGE);
@@ -71,44 +75,6 @@ public class BungeeCommands {
             }
         }
 
-    }
-
-    @Command(
-            aliases = {"addserver"},
-            desc = "Add a BungeeCord server",
-            usage = "<name> <address> [port]",
-            flags = "r",
-            min = 2,
-            max = 4
-    )
-    @CommandPermissions("bungeeutils.addserver")
-    public static void addserver(final CommandContext args, CommandSender sender) throws CommandException {
-        String name = args.getString(0);
-        String address = args.getString(1);
-        int port = args.argsLength() > 2 ? args.getInteger(2) : 25565;
-        boolean restricted = args.hasFlag('r');
-
-        ServerInfo serverInfo = ProxyServer.getInstance().constructServerInfo(name, new InetSocketAddress(address, port), "", restricted);
-        ProxyServer.getInstance().getServers().put(name, serverInfo);
-
-        Lang.message(sender, Lang.formulate(Lang.SERVER_CREATE_MESSAGE, name));
-    }
-
-    @Command(
-            aliases = {"delserver"},
-            desc = "Remove a BungeeCord server",
-            usage = "<name>",
-            min = 1,
-            max = 1
-    )
-    public static void delserver(final CommandContext args, CommandSender sender) throws CommandException {
-        String name = args.getString(0);
-
-        if (ProxyServer.getInstance().getServers().remove(name) == null) {
-            Lang.message(sender, Lang.formulate(Lang.CANNOT_FIND_SERVER, name));
-        } else {
-            Lang.message(sender, Lang.formulate(Lang.SERVER_DELETE_MESSAGE, name));
-        }
     }
 
     @Command(
